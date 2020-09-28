@@ -1,4 +1,4 @@
-import { Router } from 'express';                         //Importando Routes desde express
+import { Router } from 'express';                   //Importando Routes desde express
 import   api   from '../controllers/apiController'; //Instanciando desde el archivo amolliController.js
 
 class GameRoutes {

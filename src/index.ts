@@ -2,7 +2,7 @@ import express, { Application } from 'express'; //Inportando express
 import morgan from 'morgan';                    //Importando morgan
 import cors from 'cors';                        //Importando cors
 import indexRoutes from './routes/indexRoutes'; //Importando archivo indexRoutes.js
-import gamesRoutes from './routes/apiRoutes';   //Importando archivo apiRoutes.js
+import apiRoutes from './routes/apiRoutes';     //Importando archivo apiRoutes.js
 
 class Server {
 
@@ -21,12 +21,12 @@ class Server {
      * Método de configuración
      */
     config(): void {
-        this.app.set('port', process.env.PORT || 5000);
+        this.app.set('port', process.env.PORT || 5000);         //Definiendo un puerto, tomando un puerto en el sistema ó utiliza el puerto establecido
 
-        this.app.use(morgan('dev'));
-        this.app.use(cors());
-        this.app.use(express.json());
-        this.app.use(express.urlencoded({extended: false}));
+        this.app.use(morgan('dev'));                            //Muetras los mensajes en consola
+        this.app.use(cors());                                   
+        this.app.use(express.json());                           //Trabajando con Json
+        this.app.use(express.urlencoded({extended: false}));    //Los formularios sólo aceptán strings (No imagenes)
     }
 
     /**
@@ -34,7 +34,7 @@ class Server {
      */
     routes(): void {
         this.app.use('/', indexRoutes);//Ruta principal
-        this.app.use('/api/sps/helloworld/v1', gamesRoutes);//Ruta API-REST
+        this.app.use('/api/sps/helloworld/v1', apiRoutes);//Ruta API-REST
     }
 
     /**

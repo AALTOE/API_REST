@@ -21,11 +21,11 @@ class Server {
      * Método de configuración
      */
     config() {
-        this.app.set('port', process.env.PORT || 5000);
-        this.app.use(morgan_1.default('dev'));
+        this.app.set('port', process.env.PORT || 5000); //Definiendo un puerto, tomando un puerto en el sistema ó utiliza el puerto establecido
+        this.app.use(morgan_1.default('dev')); //Muetras los mensajes en consola
         this.app.use(cors_1.default());
-        this.app.use(express_1.default.json());
-        this.app.use(express_1.default.urlencoded({ extended: false }));
+        this.app.use(express_1.default.json()); //Trabajando con Json
+        this.app.use(express_1.default.urlencoded({ extended: false })); //Los formularios sólo aceptán strings (No imagenes)
     }
     /**
      * Método que declara las rutas

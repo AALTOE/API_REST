@@ -5,6 +5,6 @@ exports.default = {
         host: 'localhost',
         user: 'root',
         password: '',
-        database: 'MI_API'
+        database: 'MI_API' //Nombre de la base de datos
     }
 };
